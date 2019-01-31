@@ -11,6 +11,11 @@ class Product extends Box
     protected $quantity = 1;
 
     /**
+     * @var bool
+     */
+    protected $eitherSideIsUp = false;
+
+    /**
      * @return int
      */
     public function getQuantity(): int
@@ -25,6 +30,24 @@ class Product extends Box
     public function setQuantity(int $quantity): self
     {
         $this->quantity = $quantity;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEitherSideIsUp(): bool
+    {
+        return $this->eitherSideIsUp;
+    }
+
+    /**
+     * @param bool $eitherSideIsUp
+     * @return Product
+     */
+    public function setEitherSideIsUp(bool $eitherSideIsUp): self
+    {
+        $this->eitherSideIsUp = $eitherSideIsUp;
         return $this;
     }
 }

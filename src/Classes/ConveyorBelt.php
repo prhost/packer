@@ -4,7 +4,6 @@ namespace Prhost\Packer\Classes;
 
 
 use Prhost\Packer\Exceptions\ConveyorBeltException;
-use Prhost\Packer\Exceptions\PackerException;
 
 class ConveyorBelt
 {
@@ -13,7 +12,7 @@ class ConveyorBelt
      */
     protected $products = [];
 
-    public function add(Product $product)
+    public function put(Product $product)
     {
         if (empty($product->getIdentifier())) {
             throw new ConveyorBeltException('Product identifier is required');

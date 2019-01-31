@@ -36,7 +36,6 @@ class Volume
     public function setPackage(Package $package): self
     {
         $this->package = $package;
-        $this->currentWeight = $package->getWeight();
         return $this;
     }
 
@@ -60,16 +59,19 @@ class Volume
             throw new VolumeException('The product has exceeded the package cubing');
         }
 
-        if ($product->getHeight() > $this->package->getHeight()) {
-
-            if ($product->getHeight() > $this->package->getLength()) {
+        if ($product->isEitherSideIsUp()) {
+            if ($product->getWidth() > $this->package->getWidth() || $product->getHeight() > $this->package->getLength() || $product->getLength() > $this->package->getHeight()) {
+                if ($product->getLength() > $this->package->getLength() || $product->getHeight() > $this->package->getWidth() || $product->getWidth() > $this->package->getHeight()) {
+                    if ($product->getHeight() > $this->package->getHeight() || $product->getLength() > $this->package->getWidth() || $product->getWidth() > $this->package->getLength()) {
+                        throw new VolumeException('The product has exceeded the package volume');
+                    }
+                }
+            }
+        } else {
+            if ($product->getHeight() > $this->package->getHeight()) {
                 throw new VolumeException('The product has exceeded the package height');
             }
 
-            if ($product->getLength() > $this->package->getHeight()) {
-                throw new VolumeException('The product has exceeded the package length');
-            }
-        } else {
             if ($product->getWidth() > $this->package->getWidth()) {
                 throw new VolumeException('The product has exceeded the package width');
             }
@@ -84,7 +86,7 @@ class Volume
         }
 
         if (($this->package->getMaxWeight() > 0.0) && ($this->currentWeight + $product->getWeight() > $this->package->getMaxWeight())) {
-            throw new VolumeException('The product has exceeded the package weight');
+            throw new VolumeException('The product has exceeded the package max weight');
         }
     }
 

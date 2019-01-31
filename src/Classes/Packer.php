@@ -65,6 +65,8 @@ class Packer
             $volume = new Volume();
             $volume->setPackage($package);
 
+            $totalProducts = $this->conveyorBelt->count();
+
             foreach ($this->conveyorBelt->getProducts() as $key => $product) {
 
                 $quantity = $product->getQuantity();
@@ -82,7 +84,7 @@ class Packer
 
                         $quantity--;
 
-                        if ($quantity == 0 && $volume->getProducts() && $this->conveyorBelt->count() == 0) {
+                        if ($quantity == 0 && $volume->getProducts() && $totalProducts == 1) {
                             $volumes[] = $volume;
                             $volume->setPackage($package);
                         }
@@ -100,6 +102,8 @@ class Packer
                         }
                     }
                 }
+
+                $totalProducts--;
             }
         }
 
