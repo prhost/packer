@@ -1,0 +1,27 @@
+{
+  "name": "prhost/packer",
+  "type": "library",
+  "description": "Library to organize and package your products intelligently",
+  "keywords": [
+    "package",
+    "products",
+    "packer"
+  ],
+  "homepage": "https://github.com/prhost/packer",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kallef Alexandre",
+      "email": "kallef.alexandre@orbital.codes"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Prhost\\Packer\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
