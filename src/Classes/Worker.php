@@ -4,7 +4,7 @@ namespace Prhost\Packer\Classes;
 
 use Prhost\Packer\Exceptions\VolumeException;
 
-class Packer
+class Worker
 {
     /**
      * @var ConveyorBelt
@@ -30,7 +30,7 @@ class Packer
 
     /**
      * @param Package[] $packages
-     * @return Packer
+     * @return Worker
      */
     public function setPackages(array $packages): self
     {
@@ -48,7 +48,7 @@ class Packer
 
     /**
      * @param ConveyorBelt $conveyorBelt
-     * @return Packer
+     * @return Worker
      */
     public function setConveyorBelt(ConveyorBelt $conveyorBelt): self
     {
@@ -56,7 +56,7 @@ class Packer
         return $this;
     }
 
-    public function organize(): array
+    public function arrange(): array
     {
         $volumes = [];
 

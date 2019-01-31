@@ -50,4 +50,10 @@ class Product extends Box
         $this->eitherSideIsUp = $eitherSideIsUp;
         return $this;
     }
+
+    public function enableEitherSideIsUp()
+    {
+        $this->eitherSideIsUp = true;
+        return $this;
+    }
 }

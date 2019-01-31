@@ -12,7 +12,12 @@ class ConveyorBelt
      */
     protected $products = [];
 
-    public function put(Product $product)
+    /**
+     * @param Product $product
+     * @return ConveyorBelt
+     * @throws ConveyorBeltException
+     */
+    public function put(Product $product): self
     {
         if (empty($product->getIdentifier())) {
             throw new ConveyorBeltException('Product identifier is required');
@@ -25,6 +30,8 @@ class ConveyorBelt
         } else {
             $this->products[$token] = $product;
         }
+
+        return $this;
     }
 
     /**

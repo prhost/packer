@@ -64,7 +64,7 @@ class Box
 
     /**
      * @param float $weight
-     * @return Package
+     * @return Package|Product|Box
      */
     public function setWeight(float $weight): self
     {
@@ -82,7 +82,7 @@ class Box
 
     /**
      * @param float $length
-     * @return Package
+     * @return Package|Product|Box
      */
     public function setLength(float $length): self
     {
@@ -100,7 +100,7 @@ class Box
 
     /**
      * @param float $height
-     * @return Package
+     * @return Package|Product|Box
      */
     public function setHeight(float $height): self
     {
@@ -118,7 +118,7 @@ class Box
 
     /**
      * @param float $width
-     * @return Package
+     * @return Package|Product|Box
      */
     public function setWidth(float $width): self
     {
@@ -136,7 +136,7 @@ class Box
 
     /**
      * @param float $diameter
-     * @return Package
+     * @return Package|Product|Box
      */
     public function setDiameter(float $diameter): self
     {
@@ -154,7 +154,7 @@ class Box
 
     /**
      * @param string $identifier
-     * @return Package
+     * @return Package|Product|Box
      */
     public function setIdentifier(string $identifier): self
     {
@@ -178,7 +178,7 @@ class Box
 
     /**
      * @param float $cubing
-     * @return Package
+     * @return Package|Product|Box
      */
     public function setCubing(float $cubing): self
     {
