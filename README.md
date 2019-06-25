@@ -1,4 +1,4 @@
-# PACKER
+# PACKER (BETA)
 Library to organize and package your products intelligently
 
 ![Packer](packer.jpg)

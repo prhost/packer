@@ -185,4 +185,30 @@ class Box
         $this->cubing = $cubing;
         return $this;
     }
+    public function toArray(): array
+    {
+        $list = [];
+
+        if ($this->getLength()) {
+            $list['length'] = number_format($this->getLength(), 2, ',', '.');
+        }
+
+        if ($this->getHeight()) {
+            $list['height'] = number_format($this->getHeight(), 2, ',', '.');
+        }
+
+        if ($this->getWidth()) {
+            $list['width'] = number_format($this->getWidth(), 2, ',', '.');
+        }
+
+        if ($this->getIdentifier()) {
+            $list['identifier'] = $this->getIdentifier();
+        }
+
+        if ($this->getWeight()) {
+            $list['weight'] = number_format($this->getWeight(), 2, ',', '.');
+        }
+
+        return $list;
+    }
 }

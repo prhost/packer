@@ -39,6 +39,16 @@ class Worker
     }
 
     /**
+     * @param Package $package
+     * @return Worker
+     */
+    public function setPackage(Package $package): self
+    {
+        $this->packages[] = $package;
+        return $this;
+    }
+
+    /**
      * @return ConveyorBelt
      */
     public function getConveyorBelt(): ConveyorBelt
@@ -74,9 +84,10 @@ class Worker
                 while ($quantity > 0) {
 
                     try {
-                        $volume->fitInPackage($product);
+                        $position = $volume->fitInPackage($product);
 
                         $productClone = clone $product;
+                        $productClone->setPosition($position);
 
                         $this->conveyorBelt->take($product);
 
